@@ -10,6 +10,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
  * Created by yifan on 2017/5/8.
+ * @MapperScan 后面的属性要配置正确 注意通配符的使用
  */
 @Configuration
 @MapperScan(basePackages = "com.yifan.**.dao")
@@ -37,6 +38,8 @@ public class DataConfig {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setTypeAliasesPackage("com.yifan.**.domain");
+
+        //后面的路径必须存在 不存在会报错
         sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:com/yifan/**/dao/*.xml"));
         return sessionFactory;
     }

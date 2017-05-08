@@ -4,16 +4,23 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yifan.restful.demo.domain.FavUser;
+import com.yifan.restful.demo.domain.User;
+import com.yifan.restful.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by yifan on 2017/5/8.
  */
 @RestController
 public class FavRestfulController {
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value="/getUserName",method= RequestMethod.POST)
     public String getUserName(@RequestParam(value="name") String name){
@@ -54,4 +61,19 @@ public class FavRestfulController {
         favUser.setCreateDate(new Date());
         return favUser;
     }
+
+
+    @RequestMapping(value="getUser")
+    public User getUser(){
+        User user = userService.getUserList().get(0);
+        return user;
+    }
+
+    @RequestMapping(value="getAllUser")
+    public List<User> getAllUser() {
+        return userService.getUserList();
+    }
+
+
+
 }
