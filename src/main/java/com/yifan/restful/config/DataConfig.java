@@ -22,7 +22,7 @@ public class DataConfig {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/dbmvc?useUnicode=true&characterEncoding=utf-8");//防止乱码
         dataSource.setUsername("root");
-        dataSource.setPassword("1234");
+        dataSource.setPassword("MyNewPass4!");
         dataSource.setInitialSize(5);
         dataSource.setMaxActive(10);
         return dataSource;
