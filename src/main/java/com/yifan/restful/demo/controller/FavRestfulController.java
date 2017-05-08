@@ -7,6 +7,7 @@ import com.yifan.restful.demo.domain.FavUser;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * Created by yifan on 2017/5/8.
@@ -41,6 +42,16 @@ public class FavRestfulController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return favUser;
+    }
+
+    @RequestMapping(value="buildRestUser")
+    public FavUser buildRestUser(){
+        FavUser favUser = new FavUser();
+        favUser.setUserId("mm");
+        favUser.setUserName("美眉");
+        favUser.setUserAge(18);
+        favUser.setCreateDate(new Date());
         return favUser;
     }
 }
