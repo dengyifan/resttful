@@ -25,7 +25,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * value：basePackages()别名
  */
 @Configuration
-@ComponentScan(basePackages = {"com.yifan.**.dao"},
+@ComponentScan(basePackages = {"com.yifan.**.service"},
         excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)})
 @Import(DataConfig.class)
 public class RootConfig {
