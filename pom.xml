@@ -114,21 +114,21 @@
     </dependency>
 
 
-
-    <!--
-        java.lang.LinkageError: loader constraint violation:
-        loader (instance of org/apache/jasper/servlet/JasperLoader)
-
-        必须加上 scope 属性
-    -->
+    <!-- servlet采用常见的接受请求和生成响应的编程模型 ,由sun公司开发的 -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
       <scope>provided</scope>
+      <!-- provided 只影响在编译 测试阶段使用，不会在发布、打包等阶段将包放入lib目录下，常用于我们发布的目标容器中已经存在包 -->
     </dependency>
 
-
+    <!-- 用于在代码中自动生成set/get -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.4</version>
+    </dependency>
 
   </dependencies>
 
@@ -161,7 +161,7 @@
         <configuration>
           <url>http://localhost:8080/manager/html</url>
           <server>tomcat-local</server>
-          <path>/resttful</path>
+          <path>/</path>
           <port>8085</port>
         </configuration>
       </plugin>

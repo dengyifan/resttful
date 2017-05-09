@@ -20,9 +20,11 @@ public class DataConfig {
     public BasicDataSource dataSource(){
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/dbmvc?useUnicode=true&characterEncoding=utf-8");//防止乱码
+        dataSource.setUrl("jdbc:mysql://localhost:3306/dbmvc?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC");//防止乱码
         dataSource.setUsername("root");
-        dataSource.setPassword("MyNewPass4!");
+
+        //MyNewPass4!
+        dataSource.setPassword("1234");
         dataSource.setInitialSize(5);
         dataSource.setMaxActive(10);
         return dataSource;
