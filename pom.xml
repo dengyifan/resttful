@@ -8,6 +8,10 @@
   <name>resttful Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
+  <!--
+      相关学习地址 ：http://websystique.com/spring-4-mvc-tutorial/
+   -->
+
 
   <properties>
     <spring.version>4.3.8.RELEASE</spring.version>
@@ -155,9 +159,15 @@
       </plugin>
 
 
+      <!--
+          【注意】：
+          tomcat6-maven-plugin ： 只支持普通页面请求响应；restful 请求过来时仍被当作普通请求
+          tomcat7-maven-plugin : 支持 restful 类请求
+      -->
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat6-maven-plugin</artifactId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.1</version>
         <configuration>
           <url>http://localhost:8080/manager/html</url>
           <server>tomcat-local</server>

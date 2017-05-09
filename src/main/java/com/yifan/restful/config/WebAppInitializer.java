@@ -1,6 +1,9 @@
 package com.yifan.restful.config;
 
+import com.yifan.restful.filter.CORSFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 /**
  * Created by yifan on 2017/5/8.
@@ -17,6 +20,12 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        Filter [] singleton = { new CORSFilter()};
+        return singleton;
     }
 }
 
